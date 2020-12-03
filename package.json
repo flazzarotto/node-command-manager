@@ -1,0 +1,29 @@
+{
+	"name": "@kebab-case/node-command-manager",
+	"version": "1.0.0",
+	"description": "manager to easily create command-line scripts for nodejs",
+	"author": "kebab-case",
+	"main": "./dist/index.js",
+	"license": "GPL-3.0-or-later",
+	"keywords": [
+		"manager",
+		"easy",
+		"simple",
+		"command",
+		"command-line",
+		"node",
+		"nodejs"
+	],
+	"private": false,
+	"scripts": {
+		"build": "rm -rf dist && babel src -d dist && chmod +x ./dist/*.js"
+	},
+	"homepage": "https://github.com/flazzarotto/node-command-manager",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/flazzarotto/node-command-manager.git"
+	},
+	"bugs": {
+		"url": "https://github.com/flazzarotto/node-command-manager/issues"
+	}
+}
