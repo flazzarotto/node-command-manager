@@ -25,5 +25,18 @@
 	},
 	"bugs": {
 		"url": "https://github.com/flazzarotto/node-command-manager/issues"
-	}
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.12.8",
+		"@babel/core": "^7.12.9",
+		"@babel/preset-env": "^7.12.7",
+		"request": "^2.88.2"
+	},
+	"dependencies": {
+		"argv": "^0.0.2",
+		"core-js": "^3.8.0",
+		"prompt-async": "^0.9.9",
+		"regenerator-runtime": "^0.13.7"
+	},
+	"module": "./src/index.js"
 }

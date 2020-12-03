@@ -1,0 +1,50 @@
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.interactiveShell = interactiveShell;
+
+var _child_process = _interopRequireDefault(require("child_process"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+var normalize = function normalize(string) {
+  return string.replace(/[^\w\d]/ig, '').toLowerCase();
+};
+/**
+ * Provides a simple interactive shell to answer prompts
+ * @param cmd
+ * @param args
+ * @param arrayOfAnswers
+ * @param done callbackFunction
+ */
+
+
+function interactiveShell(cmd, args, arrayOfAnswers, done) {
+  var data_line = '';
+  var possibleAnswers = {};
+
+  for (var property in arrayOfAnswers) {
+    possibleAnswers[normalize(property)] = arrayOfAnswers[property];
+  }
+
+  var childProcess = _child_process["default"].spawn(cmd, args);
+
+  childProcess.stdout.setEncoding('utf8');
+  childProcess.stdout.on("data", function (data) {
+    data_line += data;
+    var prop = normalize(data_line);
+
+    if (possibleAnswers[prop]) {
+      console.info(data_line + (prop === 'password' ? '' : possibleAnswers[prop]));
+      data_line = '';
+      childProcess.stdin.write(possibleAnswers[prop] + '\n');
+      delete possibleAnswers[prop];
+    }
+  });
+  childProcess.stdout.on("end", function (data) {
+    console.info(data_line + (data !== null && data !== void 0 ? data : ''));
+    done();
+  });
+}

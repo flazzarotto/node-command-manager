@@ -1,6 +1,8 @@
-import {modValidator, optionValidator} from "./Validator";
-import {isCallable} from "./isCallable";
-import argv from "argv";
+import {modValidator, optionValidator} from "./Validator"
+import {isCallable} from "./isCallable"
+import argv from "argv"
+import "core-js/stable"
+import "regenerator-runtime/runtime"
 
 export class Command {
     #_mods
@@ -85,6 +87,9 @@ export class Command {
             return
         } else if (this.#_callStack.length) {
             for (let call of this.#_callStack) {
+                if (call instanceof Command) {
+                    call = call.call
+                }
                 previousResult = await call(fileDirectory, contextDirectory, args, previousResult)
             }
             return
