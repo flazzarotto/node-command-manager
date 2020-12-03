@@ -1,4 +1,4 @@
-import {CommandManager, version} from "."
+import {CommandManager, getVersion} from "."
 
 const initOptions = [{
     name: 'force',
@@ -19,7 +19,7 @@ const initMod = {
 
 const mods = [initMod]
 
-const npmSimplePublisherCommand = new CommandManager(version)
+const npmSimplePublisherCommand = new CommandManager(getVersion('./'))
 
 const cmd = npmSimplePublisherCommand.newCommand({mods})
 

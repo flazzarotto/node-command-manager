@@ -1,16 +1,24 @@
 import fs from 'fs'
 
-let version
+let version = null
 
-try {
-    version =
-        JSON.parse(fs.readFileSync(__dirname + '/../../packageJson.json').toString()).version
-}
-catch (e) {
-    version = '1.0.0'
+function getVersion(packageJsonDir) {
+    if (version) {
+        return version
+    }
+    try {
+        version = JSON.parse(fs.readFileSync((packageJsonDir+'/')
+            .replace(/\/+$/,'/') + 'package.json').toString()).version
+    }
+    catch (e) {
+        console.error(e)
+        version = '0.0.0'
+    }
+    return version
 }
 
-function updateVersion(type) {
+function updateVersion(type, packageJsonFile) {
+    let version = getVersion(packageJsonFile)
     let types = {M: 0, m: 1, r: 2}
     if (types[type] === undefined) {
         throw new Error(`Version type ${type} not recognized. Available types `
@@ -18,8 +26,13 @@ function updateVersion(type) {
     }
     let v = version.split('.')
     v[types[type]] = parseInt(v[types[type]]) + 1
+
+    for (let subVersion = types[type] + 1; subVersion < 3; subVersion++) {
+        v[subVersion] = 0
+    }
+
     version = v.join('.')
     return version
 }
 
-export {version, updateVersion}
+export {getVersion, updateVersion}

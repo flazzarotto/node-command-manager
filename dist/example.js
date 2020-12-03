@@ -18,7 +18,7 @@ var initMod = {
   }
 };
 var mods = [initMod];
-var npmSimplePublisherCommand = new _.CommandManager(_.version);
+var npmSimplePublisherCommand = new _.CommandManager((0, _.getVersion)('./'));
 var cmd = npmSimplePublisherCommand.newCommand({
   mods: mods
 });

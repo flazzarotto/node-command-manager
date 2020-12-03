@@ -21,7 +21,8 @@ var normalize = function normalize(string) {
  */
 
 
-function interactiveShell(cmd, args, arrayOfAnswers, done) {
+function interactiveShell(cmd, args, arrayOfAnswers) {
+  var done = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : function () {};
   var data_line = '';
   var possibleAnswers = {};
 
@@ -41,10 +42,12 @@ function interactiveShell(cmd, args, arrayOfAnswers, done) {
       data_line = '';
       childProcess.stdin.write(possibleAnswers[prop] + '\n');
       delete possibleAnswers[prop];
+    } else {
+      console.warn(data_line);
     }
   });
   childProcess.stdout.on("end", function (data) {
-    console.info(data_line + (data !== null && data !== void 0 ? data : ''));
+    console.info(data !== null && data !== void 0 ? data : '');
     done();
   });
 }
