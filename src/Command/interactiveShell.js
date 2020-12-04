@@ -9,7 +9,7 @@ const normalize = string => string.replace(/[^\w\d]/ig, '').toLowerCase()
  * @param arrayOfAnswers
  * @param done callbackFunction
  */
-export function interactiveShell(cmd, args, arrayOfAnswers, done = () => {}) {
+export function interactiveShell(cmd, args, arrayOfAnswers = {}, done = () => {}) {
     let data_line = ''
 
     let possibleAnswers = {}
@@ -32,6 +32,12 @@ export function interactiveShell(cmd, args, arrayOfAnswers, done = () => {}) {
         else {
             console.warn(data_line)
         }
+    })
+    childProcess.stdout.on('error', function (data) {
+        console.warn(data)
+    })
+    childProcess.stderr.on("data", function (data) {
+        console.error(data)
     })
     childProcess.stdout.on("end", function (data) {
         console.info(data ?? '')
