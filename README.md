@@ -122,6 +122,8 @@ Note that only log method can have "null" colors.
 Just a small wrap of `prompt-async` with sync behaviour. You can also use `PromptAsync` (which is
 basically an alias of `prompt-async`) if you prefer asynchronous. Please consult the doc of
 `prompt-async` for more information about `Prompt.call()` and `PromptAsync`.
+
+
 -----------------------------------------
 ## Powered by @kebab-case/npm-simple-publisher
 
