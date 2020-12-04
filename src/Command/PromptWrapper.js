@@ -3,24 +3,15 @@ import "core-js/stable"
 import "regenerator-runtime/runtime"
 
 export class Prompt {
-    #_schema
-
-    get schema() {
-        return this.#_schema;
-    }
-
-    constructor(schema) {
-        this.#_schema = {properties: schema}
-    }
 
     stop() {
         prompt.stop()
     }
 
-    async call() {
+    async call(properties) {
         prompt.start()
         prompt.resume()
-        let result = await prompt.get(this.#_schema)
+        let result = await prompt.get({properties})
         prompt.pause()
         return result
     }

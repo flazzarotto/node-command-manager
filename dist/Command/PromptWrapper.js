@@ -443,32 +443,9 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-function _classPrivateFieldLooseBase(receiver, privateKey) { if (!Object.prototype.hasOwnProperty.call(receiver, privateKey)) { throw new TypeError("attempted to use private field on non-instance"); } return receiver; }
-
-var id = 0;
-
-function _classPrivateFieldLooseKey(name) { return "__private_" + id++ + "_" + name; }
-
-var _schema = _classPrivateFieldLooseKey("_schema");
-
 var Prompt = /*#__PURE__*/function () {
-  _createClass(Prompt, [{
-    key: "schema",
-    get: function get() {
-      return _classPrivateFieldLooseBase(this, _schema)[_schema];
-    }
-  }]);
-
-  function Prompt(schema) {
+  function Prompt() {
     _classCallCheck(this, Prompt);
-
-    Object.defineProperty(this, _schema, {
-      writable: true,
-      value: void 0
-    });
-    _classPrivateFieldLooseBase(this, _schema)[_schema] = {
-      properties: schema
-    };
   }
 
   _createClass(Prompt, [{
@@ -479,7 +456,7 @@ var Prompt = /*#__PURE__*/function () {
   }, {
     key: "call",
     value: function () {
-      var _call = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+      var _call = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(properties) {
         var result;
         return regeneratorRuntime.wrap(function _callee$(_context) {
           while (1) {
@@ -490,7 +467,9 @@ var Prompt = /*#__PURE__*/function () {
                 _promptAsync["default"].resume();
 
                 _context.next = 4;
-                return _promptAsync["default"].get(_classPrivateFieldLooseBase(this, _schema)[_schema]);
+                return _promptAsync["default"].get({
+                  properties: properties
+                });
 
               case 4:
                 result = _context.sent;
@@ -504,10 +483,10 @@ var Prompt = /*#__PURE__*/function () {
                 return _context.stop();
             }
           }
-        }, _callee, this);
+        }, _callee);
       }));
 
-      function call() {
+      function call(_x) {
         return _call.apply(this, arguments);
       }
 

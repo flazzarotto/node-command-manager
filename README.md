@@ -98,6 +98,8 @@ matching method is `string.match`.
 A prompt will appear when a same property is asked twice in a row so you can enter answer manually.
 This function can be used with `interactive = false` to run non-interactive scripts to display
 original output.
+Eventually, you can provide a list of "hidden" attributes that you don't want to appear (i.e.
+`password`).
 
 ## Console
 You can output to the shell using the `ConsoleColor` component. Just define your own colors,

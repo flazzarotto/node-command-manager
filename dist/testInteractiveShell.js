@@ -598,7 +598,7 @@ _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
           _context.next = 2;
           return (0, _interactiveShell.interactiveShell)('npm', ['login'], {
             'username': 'caca',
-            '.+': 'any'
+            'email.+': 'any'
           });
 
         case 2:
