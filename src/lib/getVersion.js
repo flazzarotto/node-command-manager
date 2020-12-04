@@ -1,4 +1,5 @@
 import fs from 'fs'
+import console from '../Command/ConsoleColor'
 
 let version = null
 
@@ -11,7 +12,7 @@ function getVersion(packageJsonDir) {
             .replace(/\/+$/,'/') + 'package.json').toString()).version
     }
     catch (e) {
-        console.error(e)
+        console.error(e.message)
         version = '0.0.0'
     }
     return version

@@ -429,6 +429,8 @@ var _argv = _interopRequireDefault(require("argv"));
 
 require("regenerator-runtime/runtime");
 
+var _ConsoleColor = _interopRequireDefault(require("./ConsoleColor"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
@@ -676,7 +678,7 @@ var Command = /*#__PURE__*/function () {
 
               case 13:
                 if (!_classPrivateFieldLooseBase(this, _callStack)[_callStack].length) {
-                  _context.next = 34;
+                  _context.next = 41;
                   break;
                 }
 
@@ -687,7 +689,7 @@ var Command = /*#__PURE__*/function () {
 
               case 17:
                 if ((_step5 = _iterator5.n()).done) {
-                  _context.next = 25;
+                  _context.next = 32;
                   break;
                 }
 
@@ -697,47 +699,58 @@ var Command = /*#__PURE__*/function () {
                   _call2 = _call2.call;
                 }
 
-                _context.next = 22;
+                _context.prev = 20;
+                _context.next = 23;
                 return _call2(fileDirectory, contextDirectory, args, previousResult);
 
-              case 22:
-                previousResult = _context.sent;
-
               case 23:
-                _context.next = 17;
-                break;
-
-              case 25:
+                previousResult = _context.sent;
                 _context.next = 30;
                 break;
 
-              case 27:
-                _context.prev = 27;
-                _context.t0 = _context["catch"](15);
+              case 26:
+                _context.prev = 26;
+                _context.t0 = _context["catch"](20);
 
-                _iterator5.e(_context.t0);
+                _ConsoleColor["default"].error(_context.t0.message);
+
+                return _context.abrupt("return");
 
               case 30:
-                _context.prev = 30;
+                _context.next = 17;
+                break;
+
+              case 32:
+                _context.next = 37;
+                break;
+
+              case 34:
+                _context.prev = 34;
+                _context.t1 = _context["catch"](15);
+
+                _iterator5.e(_context.t1);
+
+              case 37:
+                _context.prev = 37;
 
                 _iterator5.f();
 
-                return _context.finish(30);
+                return _context.finish(37);
 
-              case 33:
+              case 40:
                 return _context.abrupt("return");
 
-              case 34:
-                console.error('No command available, module probably missing');
+              case 41:
+                _ConsoleColor["default"].error('No command available, module probably missing');
 
                 _argv["default"].help();
 
-              case 36:
+              case 43:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[15, 27, 30, 33]]);
+        }, _callee, this, [[15, 34, 37, 40], [20, 26]]);
       }));
 
       function call(_x, _x2) {

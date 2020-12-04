@@ -13,7 +13,8 @@ const initMod = {
     description: 'Initialize project',
     options: initOptions,
     exec: function() {
-        console.log(arguments)
+        throw new Error('t')
+        // console.log(arguments)
     }
 }
 
@@ -23,4 +24,13 @@ const npmSimplePublisherCommand = new CommandManager(getVersion('./'))
 
 const cmd = npmSimplePublisherCommand.newCommand({mods})
 
-cmd.call(__dirname+'/','./')
+;(async () =>
+{
+    try {
+        let e = await cmd.call(__dirname + '/', './')
+    }
+    catch (e) {
+        console.error(e)
+        return
+    }
+})()

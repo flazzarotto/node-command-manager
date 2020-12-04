@@ -8,6 +8,8 @@ exports.updateVersion = updateVersion;
 
 var _fs = _interopRequireDefault(require("fs"));
 
+var _ConsoleColor = _interopRequireDefault(require("../Command/ConsoleColor"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 var version = null;
@@ -20,7 +22,8 @@ function getVersion(packageJsonDir) {
   try {
     version = JSON.parse(_fs["default"].readFileSync((packageJsonDir + '/').replace(/\/+$/, '/') + 'package.json').toString()).version;
   } catch (e) {
-    console.error(e);
+    _ConsoleColor["default"].error(e.message);
+
     version = '0.0.0';
   }
 

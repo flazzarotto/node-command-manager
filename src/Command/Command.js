@@ -3,6 +3,7 @@ import {isCallable} from "./isCallable"
 import argv from "argv"
 import "core-js/stable"
 import "regenerator-runtime/runtime"
+import console from './ConsoleColor'
 
 export class Command {
     #_mods
@@ -90,7 +91,13 @@ export class Command {
                 if (call instanceof Command) {
                     call = call.call
                 }
-                previousResult = await call(fileDirectory, contextDirectory, args, previousResult)
+                try {
+                    previousResult = await call(fileDirectory, contextDirectory, args, previousResult)
+                }
+                catch (e) {
+                    console.error(e.message)
+                    return
+                }
             }
             return
         }
