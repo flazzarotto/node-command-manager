@@ -107,6 +107,7 @@ export async function interactiveShell(cmd, args, possibleAnswers = {}, interact
 
     return new Promise((resolve) => {
         childProcess.on('exit', function () {
+            clearTimeout(timeout)
             childProcess.kill()
             resolve()
         })

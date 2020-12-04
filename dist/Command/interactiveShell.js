@@ -225,6 +225,7 @@ function _interactiveShell() {
 
             return _context3.abrupt("return", new Promise(function (resolve) {
               childProcess.on('exit', function () {
+                clearTimeout(timeout);
                 childProcess.kill();
                 resolve();
               });

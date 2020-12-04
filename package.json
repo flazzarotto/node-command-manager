@@ -1,6 +1,6 @@
 {
 	"name": "@kebab-case/node-command-manager",
-	"version": "1.2.0",
+	"version": "1.2.1",
 	"description": "manager to easily create command-line scripts for nodejs",
 	"author": "kebab-case",
 	"main": "./dist/index.js",
@@ -30,6 +30,7 @@
 		"@babel/cli": "^7.12.8",
 		"@babel/core": "^7.12.9",
 		"@babel/preset-env": "^7.12.7",
+		"babel-eslint": "^10.1.0",
 		"request": "^2.88.2"
 	},
 	"dependencies": {
@@ -38,5 +39,18 @@
 		"prompt-async": "^0.9.9",
 		"regenerator-runtime": "^0.13.7"
 	},
-	"module": "./src/index.js"
+	"module": "./src/index.js",
+	"eslintConfig": {
+		"root": true,
+		"env": {
+			"node": true
+		},
+		"extends": [
+			"eslint:recommended"
+		],
+		"parserOptions": {
+			"parser": "babel-eslint"
+		},
+		"rules": {}
+	}
 }
