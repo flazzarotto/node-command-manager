@@ -12,8 +12,8 @@ function getVersion(packageJsonDir) {
             .replace(/\/+$/,'/') + 'package.json').toString()).version
     }
     catch (e) {
-        console.error(e.message)
         version = '0.0.0'
+        console.warn('Unable to find package.json ('+e.message+'). Using version ' + version + ' instead.')
     }
     return version
 }

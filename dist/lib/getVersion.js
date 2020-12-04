@@ -22,9 +22,9 @@ function getVersion(packageJsonDir) {
   try {
     version = JSON.parse(_fs["default"].readFileSync((packageJsonDir + '/').replace(/\/+$/, '/') + 'package.json').toString()).version;
   } catch (e) {
-    _ConsoleColor["default"].error(e.message);
-
     version = '0.0.0';
+
+    _ConsoleColor["default"].warn('Unable to find package.json (' + e.message + '). Using version ' + version + ' instead.');
   }
 
   return version;
