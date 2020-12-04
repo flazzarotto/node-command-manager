@@ -1,6 +1,6 @@
 {
 	"name": "@kebab-case/node-command-manager",
-	"version": "1.0.1",
+	"version": "1.1.0",
 	"description": "manager to easily create command-line scripts for nodejs",
 	"author": "kebab-case",
 	"main": "./dist/index.js",

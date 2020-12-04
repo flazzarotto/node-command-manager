@@ -7,6 +7,14 @@ Easily create nodejs command-line tools. This tool is build on `argv` and provid
 - function stacking with access to previous result
 - sync prompt
 
+## INSTALL
+
+```shell script
+yarn add @kebab-case/node-command-manager
+# or
+npm i @kebab-case/node-command-manager
+```
+
 ## DEPENDENCIES
 
 - argv
@@ -73,7 +81,7 @@ function yourFunction (fileDirectory, contextDirectory,{mod, options, targets}, 
 
 ## Interactive shell
 
-You can use the interactive shell to exec interactive commands. Usage:
+You can use the interactive shell to exec interactive commands. Usage example:
 ```javascript
 import {interactiveShell} from "@kebab-case/node-command-manager"
 
@@ -84,9 +92,31 @@ interactiveShell('npm', ['login'], {
 }, callbackFunction)
 ```
 where `username`, `password` and `emailthisispublic` are prompt labels, and their values answers to
-prompt. Prompt labels are case-insensitive and ignore all non alphabetical characters.
+prompt. By default, prompt labels are case-insensitive and ignore all non alphabetical characters,
+but you can use your own normalize function. You can use regex syntax, such as `'username.*'` since
+matching method is `string.match`.
+A prompt will appear when a same property is asked twice in a row so you can enter answer manually.
+This function can be used with `interactive = false` to run non-interactive scripts to display
+original output.
+
+## Console
+You can output to the shell using the `ConsoleColor` component. Just define your own colors,
+using console._setCustomColors:
+```javascript
+import console, {colorCodes} from '@kebab-case/node-command-manager/ConsoleColor'
+
+console._setCustomColors({
+    log: null,
+    error: colorCodes.bgRed + colorCodes.fgWhite,
+    info: colorCodes.bgCyan + colorCodes.fgWhite,
+    warn: colorCodes.fgYellow
+})
+```
+or you can keep default colors, and start using `console` as usual!
+Note that only log method can have "null" colors.
 
 ## Sync Prompt
 
-This component is in development stage. You can use `prompt-async` along with `await` to achieve same
-result without surprises ;-)
+Just a small wrap of `prompt-async` with sync behaviour. You can also use `PromptAsync` (which is
+basically an alias of `prompt-async`) if you prefer asynchronous. Please consult the doc of
+`prompt-async` for more information about `Prompt.call()` and `PromptAsync`.

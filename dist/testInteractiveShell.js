@@ -400,6 +400,170 @@ require("core-js/modules/es.weak-map");
 
 require("core-js/modules/es.weak-set");
 
+require("core-js/modules/esnext.aggregate-error");
+
+require("core-js/modules/esnext.array.last-index");
+
+require("core-js/modules/esnext.array.last-item");
+
+require("core-js/modules/esnext.composite-key");
+
+require("core-js/modules/esnext.composite-symbol");
+
+require("core-js/modules/esnext.global-this");
+
+require("core-js/modules/esnext.map.delete-all");
+
+require("core-js/modules/esnext.map.every");
+
+require("core-js/modules/esnext.map.filter");
+
+require("core-js/modules/esnext.map.find");
+
+require("core-js/modules/esnext.map.find-key");
+
+require("core-js/modules/esnext.map.from");
+
+require("core-js/modules/esnext.map.group-by");
+
+require("core-js/modules/esnext.map.includes");
+
+require("core-js/modules/esnext.map.key-by");
+
+require("core-js/modules/esnext.map.key-of");
+
+require("core-js/modules/esnext.map.map-keys");
+
+require("core-js/modules/esnext.map.map-values");
+
+require("core-js/modules/esnext.map.merge");
+
+require("core-js/modules/esnext.map.of");
+
+require("core-js/modules/esnext.map.reduce");
+
+require("core-js/modules/esnext.map.some");
+
+require("core-js/modules/esnext.map.update");
+
+require("core-js/modules/esnext.math.clamp");
+
+require("core-js/modules/esnext.math.deg-per-rad");
+
+require("core-js/modules/esnext.math.degrees");
+
+require("core-js/modules/esnext.math.fscale");
+
+require("core-js/modules/esnext.math.iaddh");
+
+require("core-js/modules/esnext.math.imulh");
+
+require("core-js/modules/esnext.math.isubh");
+
+require("core-js/modules/esnext.math.rad-per-deg");
+
+require("core-js/modules/esnext.math.radians");
+
+require("core-js/modules/esnext.math.scale");
+
+require("core-js/modules/esnext.math.seeded-prng");
+
+require("core-js/modules/esnext.math.signbit");
+
+require("core-js/modules/esnext.math.umulh");
+
+require("core-js/modules/esnext.number.from-string");
+
+require("core-js/modules/esnext.observable");
+
+require("core-js/modules/esnext.promise.all-settled");
+
+require("core-js/modules/esnext.promise.any");
+
+require("core-js/modules/esnext.promise.try");
+
+require("core-js/modules/esnext.reflect.define-metadata");
+
+require("core-js/modules/esnext.reflect.delete-metadata");
+
+require("core-js/modules/esnext.reflect.get-metadata");
+
+require("core-js/modules/esnext.reflect.get-metadata-keys");
+
+require("core-js/modules/esnext.reflect.get-own-metadata");
+
+require("core-js/modules/esnext.reflect.get-own-metadata-keys");
+
+require("core-js/modules/esnext.reflect.has-metadata");
+
+require("core-js/modules/esnext.reflect.has-own-metadata");
+
+require("core-js/modules/esnext.reflect.metadata");
+
+require("core-js/modules/esnext.set.add-all");
+
+require("core-js/modules/esnext.set.delete-all");
+
+require("core-js/modules/esnext.set.difference");
+
+require("core-js/modules/esnext.set.every");
+
+require("core-js/modules/esnext.set.filter");
+
+require("core-js/modules/esnext.set.find");
+
+require("core-js/modules/esnext.set.from");
+
+require("core-js/modules/esnext.set.intersection");
+
+require("core-js/modules/esnext.set.is-disjoint-from");
+
+require("core-js/modules/esnext.set.is-subset-of");
+
+require("core-js/modules/esnext.set.is-superset-of");
+
+require("core-js/modules/esnext.set.join");
+
+require("core-js/modules/esnext.set.map");
+
+require("core-js/modules/esnext.set.of");
+
+require("core-js/modules/esnext.set.reduce");
+
+require("core-js/modules/esnext.set.some");
+
+require("core-js/modules/esnext.set.symmetric-difference");
+
+require("core-js/modules/esnext.set.union");
+
+require("core-js/modules/esnext.string.at");
+
+require("core-js/modules/esnext.string.code-points");
+
+require("core-js/modules/esnext.string.match-all");
+
+require("core-js/modules/esnext.string.replace-all");
+
+require("core-js/modules/esnext.symbol.dispose");
+
+require("core-js/modules/esnext.symbol.observable");
+
+require("core-js/modules/esnext.symbol.pattern-match");
+
+require("core-js/modules/esnext.weak-map.delete-all");
+
+require("core-js/modules/esnext.weak-map.from");
+
+require("core-js/modules/esnext.weak-map.of");
+
+require("core-js/modules/esnext.weak-set.add-all");
+
+require("core-js/modules/esnext.weak-set.delete-all");
+
+require("core-js/modules/esnext.weak-set.from");
+
+require("core-js/modules/esnext.weak-set.of");
+
 require("core-js/modules/web.dom-collections.for-each");
 
 require("core-js/modules/web.dom-collections.iterator");
@@ -416,106 +580,35 @@ require("core-js/modules/web.url.to-json");
 
 require("core-js/modules/web.url-search-params");
 
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-Object.defineProperty(exports, "PromptAsync", {
-  enumerable: true,
-  get: function get() {
-    return _promptAsync["default"];
-  }
-});
-exports.Prompt = void 0;
-
-var _promptAsync = _interopRequireDefault(require("prompt-async"));
+var _interactiveShell = require("./Command/interactiveShell");
 
 require("regenerator-runtime/runtime");
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
 
 function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var publishArgs = ['publish', '--access=public', '--color always'];
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+  return regeneratorRuntime.wrap(function _callee$(_context) {
+    while (1) {
+      switch (_context.prev = _context.next) {
+        case 0:
+          _context.next = 2;
+          return (0, _interactiveShell.interactiveShell)('npm', ['login'], {
+            'username': 'caca',
+            '.+': 'any'
+          });
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+        case 2:
+          _context.next = 4;
+          return (0, _interactiveShell.interactiveShell)('npm', publishArgs, null, null, false);
 
-function _classPrivateFieldLooseBase(receiver, privateKey) { if (!Object.prototype.hasOwnProperty.call(receiver, privateKey)) { throw new TypeError("attempted to use private field on non-instance"); } return receiver; }
-
-var id = 0;
-
-function _classPrivateFieldLooseKey(name) { return "__private_" + id++ + "_" + name; }
-
-var _schema = _classPrivateFieldLooseKey("_schema");
-
-var Prompt = /*#__PURE__*/function () {
-  _createClass(Prompt, [{
-    key: "schema",
-    get: function get() {
-      return _classPrivateFieldLooseBase(this, _schema)[_schema];
-    }
-  }]);
-
-  function Prompt(schema) {
-    _classCallCheck(this, Prompt);
-
-    Object.defineProperty(this, _schema, {
-      writable: true,
-      value: void 0
-    });
-    _classPrivateFieldLooseBase(this, _schema)[_schema] = {
-      properties: schema
-    };
-  }
-
-  _createClass(Prompt, [{
-    key: "stop",
-    value: function stop() {
-      _promptAsync["default"].stop();
-    }
-  }, {
-    key: "call",
-    value: function () {
-      var _call = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-        var result;
-        return regeneratorRuntime.wrap(function _callee$(_context) {
-          while (1) {
-            switch (_context.prev = _context.next) {
-              case 0:
-                _promptAsync["default"].start();
-
-                _promptAsync["default"].resume();
-
-                _context.next = 4;
-                return _promptAsync["default"].get(_classPrivateFieldLooseBase(this, _schema)[_schema]);
-
-              case 4:
-                result = _context.sent;
-
-                _promptAsync["default"].pause();
-
-                return _context.abrupt("return", result);
-
-              case 7:
-              case "end":
-                return _context.stop();
-            }
-          }
-        }, _callee, this);
-      }));
-
-      function call() {
-        return _call.apply(this, arguments);
+        case 4:
+        case "end":
+          return _context.stop();
       }
-
-      return call;
-    }()
-  }]);
-
-  return Prompt;
-}();
-
-exports.Prompt = Prompt;
+    }
+  }, _callee);
+}))();
