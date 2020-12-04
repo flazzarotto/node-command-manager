@@ -21,7 +21,8 @@ var normalize = function normalize(string) {
  */
 
 
-function interactiveShell(cmd, args, arrayOfAnswers) {
+function interactiveShell(cmd, args) {
+  var arrayOfAnswers = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
   var done = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : function () {};
   var data_line = '';
   var possibleAnswers = {};
@@ -45,6 +46,12 @@ function interactiveShell(cmd, args, arrayOfAnswers) {
     } else {
       console.warn(data_line);
     }
+  });
+  childProcess.stdout.on('error', function (data) {
+    console.warn(data);
+  });
+  childProcess.stderr.on("data", function (data) {
+    console.error(data);
   });
   childProcess.stdout.on("end", function (data) {
     console.info(data !== null && data !== void 0 ? data : '');
