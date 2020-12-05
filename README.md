@@ -7,7 +7,7 @@ Easily create nodejs command-line tools. This tool is build on `argv` and provid
 - function stacking with access to previous result
 - sync prompt
 
-## INSTALL
+### INSTALL
 
 ```shell script
 yarn add @kebab-case/node-command-manager
@@ -15,12 +15,12 @@ yarn add @kebab-case/node-command-manager
 npm i @kebab-case/node-command-manager
 ```
 
-## DEPENDENCIES
+### DEPENDENCIES
 
 - argv
 - prompt-sync
 
-## HOW TO
+### HOW TO
 
 Here is an example:
 
@@ -79,7 +79,7 @@ function yourFunction (fileDirectory, contextDirectory,{mod, options, targets}, 
 }
 ```
 
-## Interactive shell
+### Interactive shell
 
 You can use the interactive shell to exec interactive commands. Usage example:
 ```javascript
@@ -101,7 +101,7 @@ original output.
 Eventually, you can provide a list of "hidden" attributes that you don't want to appear (i.e.
 `password`).
 
-## Console
+### Console
 You can output to the shell using the `ConsoleColor` component. Just define your own colors,
 using console._setCustomColors:
 ```javascript
@@ -117,7 +117,7 @@ console._setCustomColors({
 or you can keep default colors, and start using `console` as usual!
 Note that only log method can have "null" colors.
 
-## Sync Prompt
+### Sync Prompt
 
 Just a small wrap of `prompt-async` with sync behaviour. You can also use `PromptAsync` (which is
 basically an alias of `prompt-async`) if you prefer asynchronous. Please consult the doc of
