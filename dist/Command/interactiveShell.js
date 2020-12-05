@@ -73,15 +73,16 @@ function _interactiveShell() {
           case 0:
             possibleAnswers = _args3.length > 2 && _args3[2] !== undefined ? _args3[2] : {};
             interactive = _args3.length > 3 && _args3[3] !== undefined ? _args3[3] : true;
-            customNormalizeFunction = _args3.length > 4 && _args3[4] !== undefined ? _args3[4] : normalize;
+            customNormalizeFunction = _args3.length > 4 && _args3[4] !== undefined ? _args3[4] : null;
             hiddenProps = _args3.length > 5 && _args3[5] !== undefined ? _args3[5] : ['password'];
             data_line = '';
-            _context3.next = 7;
+            customNormalizeFunction = customNormalizeFunction || normalize;
+            _context3.next = 8;
             return _child_process["default"].spawn(cmd, _toConsumableArray(args), {
               stdio: interactive ? 'pipe' : ['pipe', 1, 2]
             });
 
-          case 7:
+          case 8:
             childProcess = _context3.sent;
             timeout = null;
 
@@ -231,7 +232,7 @@ function _interactiveShell() {
               });
             }));
 
-          case 11:
+          case 12:
           case "end":
             return _context3.stop();
         }

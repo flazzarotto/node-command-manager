@@ -21,9 +21,11 @@ const normalize = string => string.replace(/[^\w\d]/ig, '').toLowerCase()
  * @param hiddenProps {string[]}list of props you want to hide entered values, such as password - default: ['password']
  */
 export async function interactiveShell(cmd, args, possibleAnswers = {}, interactive = true,
-                                       customNormalizeFunction = normalize, hiddenProps = ['password']) {
+                                       customNormalizeFunction = null, hiddenProps = ['password']) {
 
     let data_line = ''
+
+    customNormalizeFunction = customNormalizeFunction || normalize
 
     const childProcess = await cp.spawn(cmd, [...args],
         {
