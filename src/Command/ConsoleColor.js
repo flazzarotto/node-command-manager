@@ -42,7 +42,7 @@ let defaultColors = {
 
 export default {
     _setCustomColors({log, error, info, warn} = defaultColors) {
-        defaultColors = {log, error, info, warn}
+        defaultColors = {...defaultColors, log, error, info, warn}
     },
     log() {
         if (defaultColors.log) {
