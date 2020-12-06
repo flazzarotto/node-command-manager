@@ -12,22 +12,14 @@ var _ConsoleColor = _interopRequireDefault(require("../Command/ConsoleColor"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
-var version = null;
-
 function getVersion(packageJsonDir) {
-  if (version) {
-    return version;
-  }
-
   try {
-    version = JSON.parse(_fs["default"].readFileSync((packageJsonDir + '/').replace(/\/+$/, '/') + 'package.json').toString()).version;
+    return JSON.parse(_fs["default"].readFileSync((packageJsonDir + '/').replace(/\/+$/, '/') + 'package.json').toString()).version;
   } catch (e) {
-    version = '0.0.0';
-
     _ConsoleColor["default"].warn('Unable to find package.json (' + e.message + '). Using version ' + version + ' instead.');
-  }
 
-  return version;
+    return '0.0.0';
+  }
 }
 
 function updateVersion(type, packageJsonFile) {
