@@ -27,7 +27,7 @@ const cmd = npmSimplePublisherCommand.newCommand({mods})
 ;(async () =>
 {
     try {
-        let e = await cmd.call(__dirname + '/', './')
+        await cmd.call(__dirname + '/', './')
     }
     catch (e) {
         console.error(e)

@@ -28,7 +28,6 @@ var cmd = npmSimplePublisherCommand.newCommand({
 });
 
 _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-  var e;
   return regeneratorRuntime.wrap(function _callee$(_context) {
     while (1) {
       switch (_context.prev = _context.next) {
@@ -38,20 +37,19 @@ _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
           return cmd.call(__dirname + '/', './');
 
         case 3:
-          e = _context.sent;
-          _context.next = 10;
+          _context.next = 9;
           break;
 
-        case 6:
-          _context.prev = 6;
+        case 5:
+          _context.prev = 5;
           _context.t0 = _context["catch"](0);
           console.error(_context.t0);
           return _context.abrupt("return");
 
-        case 10:
+        case 9:
         case "end":
           return _context.stop();
       }
     }
-  }, _callee, null, [[0, 6]]);
+  }, _callee, null, [[0, 5]]);
 }))();

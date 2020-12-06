@@ -13,12 +13,14 @@ var _ConsoleColor = _interopRequireDefault(require("../Command/ConsoleColor"));
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function getVersion(packageJsonDir) {
+  var version = '0.0.0';
+
   try {
     return JSON.parse(_fs["default"].readFileSync((packageJsonDir + '/').replace(/\/+$/, '/') + 'package.json').toString()).version;
   } catch (e) {
     _ConsoleColor["default"].warn('Unable to find package.json (' + e.message + '). Using version ' + version + ' instead.');
 
-    return '0.0.0';
+    return version;
   }
 }
 

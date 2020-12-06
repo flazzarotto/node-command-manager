@@ -2,13 +2,14 @@ import fs from 'fs'
 import console from '../Command/ConsoleColor'
 
 function getVersion(packageJsonDir) {
+    let version = '0.0.0'
     try {
         return JSON.parse(fs.readFileSync((packageJsonDir+'/')
             .replace(/\/+$/,'/') + 'package.json').toString()).version
     }
     catch (e) {
         console.warn('Unable to find package.json ('+e.message+'). Using version ' + version + ' instead.')
-        return '0.0.0'
+        return version
     }
 }
 

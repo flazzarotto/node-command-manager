@@ -52,6 +52,7 @@ var colorCodes = {
 exports.colorCodes = colorCodes;
 
 function strArgs(args) {
+  args;
   return '%s'; // let array = Object.values(args).map(param => '%'+(typeof param).charAt(0))
   // console.log(array)
   // return array.join('')

@@ -26,6 +26,7 @@ export const colorCodes = {
 }
 
 function strArgs(args) {
+    args;
     return '%s'
 
     // let array = Object.values(args).map(param => '%'+(typeof param).charAt(0))
