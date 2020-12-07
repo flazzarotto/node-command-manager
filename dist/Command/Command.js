@@ -628,7 +628,7 @@ var Command = /*#__PURE__*/function () {
 
                   _argv["default"].info("\tCommand modules: \n\t- " + _classPrivateFieldLooseBase(this, _mods)[_mods].map(function (mod) {
                     return mod.mod;
-                  }).join("\n\t- ") + "\n\n\tUse kc-nps [module] --help for more information about each module.");
+                  }).join("\n\t- ") + "\n\n\tUse [module] --help for more information about each module.");
 
                   _iterator4 = _createForOfIteratorHelper(_classPrivateFieldLooseBase(this, _mods)[_mods]);
 

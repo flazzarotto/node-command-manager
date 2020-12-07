@@ -64,7 +64,7 @@ export class Command {
             argv.info(
                 `\tCommand modules: \n\t- `
                 + this.#_mods.map(mod => mod.mod).join(`\n\t- `)
-                + `\n\n\tUse kc-nps [module] --help for more information about each module.`
+                + `\n\n\tUse [module] --help for more information about each module.`
             )
             for (let mod of this.#_mods) {
                 argv.mod(mod)
