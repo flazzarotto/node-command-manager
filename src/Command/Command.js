@@ -89,7 +89,7 @@ export class Command {
         } else if (this.#_callStack.length) {
             for (let call of this.#_callStack) {
                 if (call instanceof Command) {
-                    call = call.call
+                    call = await call.call
                 }
                 try {
                     previousResult = await call(fileDirectory, contextDirectory, args, previousResult)

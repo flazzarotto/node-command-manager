@@ -678,7 +678,7 @@ var Command = /*#__PURE__*/function () {
 
               case 13:
                 if (!_classPrivateFieldLooseBase(this, _callStack)[_callStack].length) {
-                  _context.next = 41;
+                  _context.next = 44;
                   break;
                 }
 
@@ -689,68 +689,76 @@ var Command = /*#__PURE__*/function () {
 
               case 17:
                 if ((_step5 = _iterator5.n()).done) {
-                  _context.next = 32;
+                  _context.next = 35;
                   break;
                 }
 
                 _call2 = _step5.value;
 
-                if (_call2 instanceof Command) {
-                  _call2 = _call2.call;
+                if (!(_call2 instanceof Command)) {
+                  _context.next = 23;
+                  break;
                 }
 
-                _context.prev = 20;
-                _context.next = 23;
-                return _call2(fileDirectory, contextDirectory, args, previousResult);
+                _context.next = 22;
+                return _call2.call;
+
+              case 22:
+                _call2 = _context.sent;
 
               case 23:
-                previousResult = _context.sent;
-                _context.next = 30;
-                break;
+                _context.prev = 23;
+                _context.next = 26;
+                return _call2(fileDirectory, contextDirectory, args, previousResult);
 
               case 26:
-                _context.prev = 26;
-                _context.t0 = _context["catch"](20);
+                previousResult = _context.sent;
+                _context.next = 33;
+                break;
+
+              case 29:
+                _context.prev = 29;
+                _context.t0 = _context["catch"](23);
 
                 _ConsoleColor["default"].error(_context.t0.message);
 
                 return _context.abrupt("return");
 
-              case 30:
+              case 33:
                 _context.next = 17;
                 break;
 
-              case 32:
-                _context.next = 37;
+              case 35:
+                _context.next = 40;
                 break;
 
-              case 34:
-                _context.prev = 34;
+              case 37:
+                _context.prev = 37;
                 _context.t1 = _context["catch"](15);
 
                 _iterator5.e(_context.t1);
 
-              case 37:
-                _context.prev = 37;
+              case 40:
+                _context.prev = 40;
 
                 _iterator5.f();
 
-                return _context.finish(37);
+                return _context.finish(40);
 
-              case 40:
+              case 43:
                 return _context.abrupt("return");
 
-              case 41:
+              case 44:
                 _ConsoleColor["default"].error('No command available, module probably missing');
 
                 _argv["default"].help();
 
-              case 43:
+              case 46:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, this, [[15, 34, 37, 40], [20, 26]]);
+        }, _callee, this, [[15, 37, 40, 43], [23, 29]]);
       }));
 
       function call(_x, _x2) {

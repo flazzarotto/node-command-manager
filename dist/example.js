@@ -17,9 +17,34 @@ var initMod = {
   mod: 'init',
   description: 'Initialize project',
   options: initOptions,
-  exec: function exec() {
-    throw new Error('t'); // console.log(arguments)
-  }
+  exec: function () {
+    var _exec = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
+      return regeneratorRuntime.wrap(function _callee$(_context) {
+        while (1) {
+          switch (_context.prev = _context.next) {
+            case 0:
+              _context.next = 2;
+              return (0, _.interactiveShell)('dir', [], [], false, null, [], {
+                cwd: '..'
+              });
+
+            case 2:
+              throw new Error('t');
+
+            case 3:
+            case "end":
+              return _context.stop();
+          }
+        }
+      }, _callee);
+    }));
+
+    function exec() {
+      return _exec.apply(this, arguments);
+    }
+
+    return exec;
+  }()
 };
 var mods = [initMod];
 var npmSimplePublisherCommand = new _.CommandManager((0, _.getVersion)('./'));
@@ -27,29 +52,28 @@ var cmd = npmSimplePublisherCommand.newCommand({
   mods: mods
 });
 
-_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee() {
-  return regeneratorRuntime.wrap(function _callee$(_context) {
+_asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2() {
+  return regeneratorRuntime.wrap(function _callee2$(_context2) {
     while (1) {
-      switch (_context.prev = _context.next) {
+      switch (_context2.prev = _context2.next) {
         case 0:
-          _context.prev = 0;
-          _context.next = 3;
+          _context2.prev = 0;
+          _context2.next = 3;
           return cmd.call(__dirname + '/', './');
 
         case 3:
-          _context.next = 9;
+          _context2.next = 8;
           break;
 
         case 5:
-          _context.prev = 5;
-          _context.t0 = _context["catch"](0);
-          console.error(_context.t0);
-          return _context.abrupt("return");
+          _context2.prev = 5;
+          _context2.t0 = _context2["catch"](0);
+          console.error(_context2.t0);
 
-        case 9:
+        case 8:
         case "end":
-          return _context.stop();
+          return _context2.stop();
       }
     }
-  }, _callee, null, [[0, 5]]);
+  }, _callee2, null, [[0, 5]]);
 }))();

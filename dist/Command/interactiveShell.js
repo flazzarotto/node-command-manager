@@ -13,6 +13,12 @@ var _ConsoleColor = _interopRequireDefault(require("./ConsoleColor"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
 
 function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
@@ -47,6 +53,7 @@ var normalize = function normalize(string) {
  * @param interactive
  * @param customNormalizeFunction {function} your own normalize function for prompted labels - default: strip all non alphanumerical characters
  * @param hiddenProps {string[]}list of props you want to hide entered values, such as password - default: ['password']
+ * @param options {object} options to pass to the cp.spawn(cmd, args, options)
  */
 
 
@@ -60,6 +67,7 @@ function _interactiveShell() {
         interactive,
         customNormalizeFunction,
         hiddenProps,
+        options,
         data_line,
         childProcess,
         timeout,
@@ -75,14 +83,15 @@ function _interactiveShell() {
             interactive = _args3.length > 3 && _args3[3] !== undefined ? _args3[3] : true;
             customNormalizeFunction = _args3.length > 4 && _args3[4] !== undefined ? _args3[4] : null;
             hiddenProps = _args3.length > 5 && _args3[5] !== undefined ? _args3[5] : ['password'];
+            options = _args3.length > 6 && _args3[6] !== undefined ? _args3[6] : {};
             data_line = '';
             customNormalizeFunction = customNormalizeFunction || normalize;
-            _context3.next = 8;
-            return _child_process["default"].spawn(cmd, _toConsumableArray(args), {
+            _context3.next = 9;
+            return _child_process["default"].spawn(cmd, _toConsumableArray(args), _objectSpread(_objectSpread({}, options), {}, {
               stdio: interactive ? 'pipe' : ['pipe', 1, 2]
-            });
+            }));
 
-          case 8:
+          case 9:
             childProcess = _context3.sent;
             timeout = null;
 
@@ -232,7 +241,7 @@ function _interactiveShell() {
               });
             }));
 
-          case 12:
+          case 13:
           case "end":
             return _context3.stop();
         }

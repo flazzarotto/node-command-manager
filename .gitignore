@@ -1,4 +1,2 @@
 node_modules
 /config.local.json
-package-lock.json
-*/testInteractiveShell.js
